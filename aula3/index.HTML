@@ -14,11 +14,18 @@
         <section>
             <h2>Cadastre seu currículo</h2>
 
-            <form action="#" method="post">
+            <form action="https://postman-echo.com/post" method="post" enctype="multipart/form-data">
                 <p>Preencha o formulário para se candidatar à vaga.</p>
 
                 <fieldset>
                     <legend>Dados Pessoais</legend>
+                    
+                    <div>
+
+                        <label for="foto_id">Foto:</label>
+                        <input id="foto_id" name="foto" type="file" accept="image/*" required>
+
+                    </div>
 
                     <div>
                         <label for="nome_id">Nome Completo:</label>
