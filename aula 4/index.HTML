@@ -1,0 +1,292 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <title>Ficha de Personagem RPG</title>
+</head>
+
+<body>
+    <header>
+        <h1>Ficha de Personagem RPG</h1>
+    </header>
+
+    <main>
+        <section>
+            <h2>Crie seu personagem</h2>
+
+            <form action="https://postman-echo.com/post" method="post">
+
+                <p>Preencha os dados para criar sua ficha de personagem.</p>
+
+                <fieldset>
+                    <legend>Dados do Personagem</legend>
+
+                    <div>
+                        <label for="nome_id">Nome do personagem:</label>
+                        <input
+                            id="nome_id"
+                            name="nome"
+                            type="text"
+                            placeholder="Ex: Artorias"
+                            required
+                        >
+                    </div>
+
+                    <br>
+
+                    <div>
+                        <label for="jogador_id">Nome do jogador:</label>
+                        <input
+                            id="jogador_id"
+                            name="jogador"
+                            type="text"
+                            placeholder="Digite seu nome"
+                            required
+                        >
+                    </div>
+
+                    <br>
+
+                    <div>
+                        <label for="idade_id">Idade do personagem:</label>
+                        <input
+                            id="idade_id"
+                            name="idade"
+                            type="number"
+                            min="1"
+                            max="1000"
+                            required
+                        >
+                    </div>
+
+                    <br>
+
+                    <div>
+                        <label for="email_id">Email do jogador:</label>
+                        <input
+                            id="email_id"
+                            name="email"
+                            type="email"
+                            placeholder="exemplo@email.com"
+                            required
+                        >
+                    </div>
+
+                    <br>
+
+                    <div>
+                        <label for="nome_guilda_id">Nome da guilda:</label>
+                        <input
+                            id="nome_guilda_id"
+                            name="guilda"
+                            type="text"
+                            placeholder="Ex: Cavaleiros do Norte"
+                        >
+                    </div>
+                </fieldset>
+
+                <fieldset>
+                    <legend>Características</legend>
+
+                    <div>
+                        <label for="raca_id">Raça:</label>
+
+                        <select
+                            id="raca_id"
+                            name="raca"
+                            required
+                        >
+                            <option value="">Selecione</option>
+                            <option value="humano">Humano</option>
+                            <option value="elfo">Elfo</option>
+                            <option value="anao">Anão</option>
+                            <option value="orc">Orc</option>
+                            <option value="halfling">Gigante</option>
+                        </select>
+                    </div>
+
+                    <br>
+
+                    <div>
+                        <label for="classe_id">Classe:</label>
+
+                        <select
+                            id="classe_id"
+                            name="classe"
+                            required
+                        >
+                            <option value="">Selecione</option>
+                            <option value="guerreiro">Guerreiro</option>
+                            <option value="mago">Mago</option>
+                            <option value="arqueiro">Arqueiro</option>
+                            <option value="ladino">Ladino</option>
+                            <option value="clerigo">Clérigo</option>
+                        </select>
+                    </div>
+
+                    <br>
+
+                    <div>
+                        <label for="nivel_id">Nível:</label>
+                        <input
+                            id="nivel_id"
+                            name="nivel"
+                            type="number"
+                            min="1"
+                            max="100"
+                            required
+                        >
+                    </div>
+
+                    <br>
+
+                    <div>
+                        <label for="codigo_id">Código da ficha:</label>
+                        <input
+                            id="codigo_id"
+                            name="codigo"
+                            type="text"
+                            placeholder="Ex: RPG123"
+                            pattern="[A-Za-z0-9]{6}"
+                            title="Digite exatamente 6 letras ou números"
+                            required
+                        >
+                    </div>
+                </fieldset>
+
+                <fieldset>
+                    <legend>Alinhamento</legend>
+
+                    <div>
+                        <input
+                            id="bom_id"
+                            name="alinhamento"
+                            type="radio"
+                            value="bom"
+                            required
+                        >
+                        <label for="bom_id">Bom</label>
+                    </div>
+
+                    <div>
+                        <input
+                            id="neutro_id"
+                            name="alinhamento"
+                            type="radio"
+                            value="neutro"
+                        >
+                        <label for="neutro_id">Neutro</label>
+                    </div>
+
+                    <div>
+                        <input
+                            id="mal_id"
+                            name="alinhamento"
+                            type="radio"
+                            value="mal"
+                        >
+                        <label for="mal_id">Mal</label>
+                    </div>
+                </fieldset>
+
+                <fieldset>
+                    <legend>Habilidades</legend>
+
+                    <div>
+                        <input
+                            id="forca_id"
+                            name="habilidade"
+                            type="checkbox"
+                            value="forca"
+                        >
+                        <label for="forca_id">Força</label>
+                    </div>
+
+                    <div>
+                        <input
+                            id="magia_id"
+                            name="habilidade"
+                            type="checkbox"
+                            value="magia"
+                        >
+                        <label for="magia_id">Magia</label>
+                    </div>
+
+                    <div>
+                        <input
+                            id="agilidade_id"
+                            name="habilidade"
+                            type="checkbox"
+                            value="agilidade"
+                        >
+                        <label for="agilidade_id">Agilidade</label>
+                    </div>
+
+                    <div>
+                        <input
+                            id="resistencia_id"
+                            name="habilidade"
+                            type="checkbox"
+                            value="resistencia"
+                        >
+                        <label for="resistencia_id">Resistência</label>
+                    </div>
+                </fieldset>
+
+                <fieldset>
+                    <legend>História do Personagem</legend>
+
+                    <div>
+                        <label for="historia_id">Conte a história do seu personagem:</label>
+                        <br>
+
+                        <textarea
+                            id="historia_id"
+                            name="historia"
+                            rows="8"
+                            cols="50"
+                            placeholder="Escreva aqui a história do seu personagem..."
+                        ></textarea>
+                    </div>
+                </fieldset>
+
+                <fieldset>
+                    <legend>Informações adicionais</legend>
+
+                    <div>
+                        <label for="arma_id">Arma principal:</label>
+                        <input
+                            id="arma_id"
+                            name="arma"
+                            type="text"
+                            placeholder="Ex: Espada longa"
+                        >
+                    </div>
+
+                    <br>
+
+                    <div>
+                        <label for="ouro_id">Quantidade de ouro:</label>
+                        <input
+                            id="ouro_id"
+                            name="ouro"
+                            type="number"
+                            min="0"
+                        >
+                    </div>
+                </fieldset>
+
+                <div>
+                    <button type="reset">Limpar ficha</button>
+                    <button type="submit">Enviar ficha</button>
+                </div>
+
+            </form>
+        </section>
+    </main>
+
+    <footer>
+        <p>Ficha de Personagem RPG - Todos os direitos reservados.</p>
+    </footer>
+</body>
+</html>
