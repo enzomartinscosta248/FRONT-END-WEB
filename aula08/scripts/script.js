@@ -1,7 +1,6 @@
 function executar(evento) {
   evento.preventDefault();
   limparForm();
-
   if (!validarForm()) {
     return;
   }
@@ -13,7 +12,10 @@ async function chamarApi() {
   const dados = {
     nome: document.querySelector("#nome").value,
     idade: Number(document.querySelector("#idade").value),
-    celular: document.querySelector("#celular").value.replace(/\D/g, "").slice(0, 11),
+    celular: document
+      .querySelector("#celular")
+      .value.replace(/\D/g, "")
+      .slice(0, 11),
     email: document.querySelector("#email").value,
   };
 
@@ -29,58 +31,39 @@ async function chamarApi() {
     }
 
     const resultado = await resposta.json();
-
     alert(`Cadastro realizado com sucesso, ${resultado.json.email}!`);
-
   } catch (erro) {
     alert("Não foi possível enviar o cadastro: " + erro.message);
   }
 }
 
 function validarForm() {
-
-  // VALIDAR NOME
   const nome = document.querySelector("#nome").value;
   const erroNome = document.querySelector("#erro-nome");
-
-  if (nome.trim() === "") {
+  if (nome === "") {
     erroNome.textContent = "Nome não pode estar vazio!";
     erroNome.classList.add("erro");
     erroNome.classList.remove("oculto");
   }
 
-  // VALIDAR IDADE
   const idade = document.querySelector("#idade").value;
   const erroIdade = document.querySelector("#erro-idade");
-
   if (idade === "") {
-    erroIdade.textContent = "Idade não pode estar vazia!";
+    erroIdade.textContent = "Idade não pode estar vazio!";
     erroIdade.classList.add("erro");
     erroIdade.classList.remove("oculto");
-
   } else if (Number(idade) < 18) {
     erroIdade.textContent = "É necessário ter 18 anos!";
     erroIdade.classList.add("erro");
     erroIdade.classList.remove("oculto");
   }
 
-  // VALIDAR CELULAR
-  const celular = document.querySelector("#celular").value.replace(/\D/g, "");
-  const erroCelular = document.querySelector("#erro-celular");
-
-  if (celular.length < 10) {
-    erroCelular.textContent = "Digite um celular válido!";
-    erroCelular.classList.add("erro");
-    erroCelular.classList.remove("oculto");
-  }
-
-  // VALIDAR EMAIL COM REGEX
   const email = document.querySelector("#email").value;
   const erroEmail = document.querySelector("#erro-email");
 
-  const regexEmail = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+  const regex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
 
-  if (!regexEmail.test(email)) {
+  if (!regex.test(email)) {
     erroEmail.textContent = "Digite um email válido!";
     erroEmail.classList.add("erro");
     erroEmail.classList.remove("oculto");
@@ -88,7 +71,6 @@ function validarForm() {
 
   const termos = document.querySelector("#termos");
   const erroTermos = document.querySelector("#erro-termos");
-
   if (!termos.checked) {
     erroTermos.textContent = "É preciso aceitar os termos!";
     erroTermos.classList.add("erro");
@@ -112,11 +94,9 @@ const limparForm = () => {
     item.classList.remove("erro");
     item.classList.add("oculto");
   });
-
   document.querySelector("#concluido").classList.add("oculto");
 };
 
-// MASCARAR CELULAR
 function mascararCelular(evento) {
   const campo = evento.target;
 
@@ -128,13 +108,10 @@ function mascararCelular(evento) {
 
   if (numeros.length > 7) {
     campo.value = `(${ddd}) ${inicio}-${fim}`;
-
   } else if (numeros.length > 2) {
     campo.value = `(${ddd}) ${inicio}`;
-
   } else if (numeros.length > 0) {
     campo.value = `(${ddd}`;
-
   } else {
     campo.value = "";
   }
